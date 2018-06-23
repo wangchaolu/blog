@@ -8,7 +8,7 @@
 <link rel="shortcut icon" href="logo.ico"  />
 <link rel="stylesheet" type="text/css" href="__STATIC__/plugin/bootstrap/css/bootstrap.min.css" >
 <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-<link rel="stylesheet" type="text/css" href="__STATIC__/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="__CSS__/common.css"/>
 <link rel="stylesheet" type="text/css" href="__STATIC__/css/about.css"/>
 <link rel="stylesheet" type="text/css" href="__STATIC__/css/article.css"/>
 
@@ -39,11 +39,11 @@
         <div class="w_header_top">
             <a href="#" class="w_logo"></a>
             <span class="w_header_nav">
-					<ul>
-						<li><a href="{:url('index/index')}"  onclick="selected_title(this)" class="active">首页</a></li>
-                        <li><a href="{:url('resources/index')}"  onclick="selected_title(this)">资源下载</a></li>
-                        <li><a href="{:url('comment/index')}"  onclick="selected_title(this)">留言板</a></li>
-						<li><a href="{:url('about/index')}"  onclick="selected_title(this)">关于我们</a></li>
+					<ul>{$action}
+						<li><a href="/"   class="{if $action =='Index'}active{/if}">首页</a></li>
+                        <li><a href="{:url('resources/index')}" class="{if $action =='Resources'}active{/if}" >资源下载</a></li>
+                        <li><a href="{:url('comment/index')}"  class="{if $action =='Comment'}active{/if}">留言板</a></li>
+						<li><a href="{:url('about/index')}"  class="{if $action =='About'}active{/if}">关于我们</a></li>
 					</ul>
 				</span>
             <div class="w_search">

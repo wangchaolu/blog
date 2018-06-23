@@ -10,6 +10,7 @@ class About extends Controller
     /*======= 关于我们 ======*/
     public function index()
     {
+		$this->assign('action',request()->controller());
         return view();
     }
 }
