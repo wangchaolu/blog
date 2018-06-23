@@ -10,6 +10,8 @@ class Index extends Controller
     /*======= 首页 ======*/
     public function index()
     {
+        
+        $this->assign('action',request()->controller());
         return view();
     }
 }
