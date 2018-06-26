@@ -58,7 +58,8 @@
                         <!--文章列表开始-->
                         <div class="contentList">
                             {volist name='content_info' id='contentinfo'}
-                                {if condition='isset($contentinfo->cover_img)'}
+                                {if condition='is_null($contentinfo->cover_img)'}
+
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <h4><a class="title" href="#">{$contentinfo->title}</a></h4>

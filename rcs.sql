@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-06-23 09:57:41
+Date: 2018-06-26 10:30:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,11 +30,15 @@ CREATE TABLE `rcs_ad` (
   `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='广告友链表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='广告友链表';
 
 -- ----------------------------
 -- Records of rcs_ad
 -- ----------------------------
+INSERT INTO `rcs_ad` VALUES ('1', 'banner1', 'http://www.17sucai.com/preview/705993/2018-01-18/Blog_html/img/slider/slide1.jpg', null, '1', '1', null, null, null);
+INSERT INTO `rcs_ad` VALUES ('2', 'banner2', 'http://www.17sucai.com/preview/705993/2018-01-18/Blog_html/img/slider/slide2.jpg', null, '1', '1', null, null, null);
+INSERT INTO `rcs_ad` VALUES ('3', 'banner3', 'http://www.17sucai.com/preview/705993/2018-01-18/Blog_html/img/slider/slide3.jpg', null, '1', '1', null, null, null);
+INSERT INTO `rcs_ad` VALUES ('4', 'banner4', 'http://www.17sucai.com/preview/705993/2018-01-18/Blog_html/img/slider/slide4.jpg', null, '1', '1', '2018-06-25 16:26:15', '2018-06-25 16:26:15', null);
 
 -- ----------------------------
 -- Table structure for rcs_admin
@@ -88,11 +92,12 @@ CREATE TABLE `rcs_comment` (
   `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='资源文章评论记录表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='资源文章评论记录表';
 
 -- ----------------------------
 -- Records of rcs_comment
 -- ----------------------------
+INSERT INTO `rcs_comment` VALUES ('1', '3', 'adminas', '2018-06-25 16:29:36', '231241', '\0', null, null, null);
 
 -- ----------------------------
 -- Table structure for rcs_config
@@ -123,23 +128,32 @@ CREATE TABLE `rcs_config` (
 DROP TABLE IF EXISTS `rcs_content`;
 CREATE TABLE `rcs_content` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL COMMENT '标题',
-  `content` text COMMENT '内容',
-  `label` varchar(255) DEFAULT NULL COMMENT '标签（关键字）',
-  `release_man` varchar(100) DEFAULT NULL COMMENT '发布人',
-  `release_time` date DEFAULT NULL COMMENT '发布时间',
+  `cover_img` varchar(255) DEFAULT NULL COMMENT '封面图',
+  `title` varchar(255) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '内容',
+  `label` varchar(255) NOT NULL COMMENT '标签（关键字）',
+  `release_man` varchar(100) NOT NULL COMMENT '发布人',
+  `release_time` date NOT NULL COMMENT '发布时间',
   `resources_id` int(11) DEFAULT NULL COMMENT '下载资源ID',
-  `click_num` int(11) DEFAULT NULL COMMENT '点击量(阅读量)',
-  `is_top` bit(1) DEFAULT b'0' COMMENT '是否置顶 0为否  1为是',
+  `click_num` int(11) NOT NULL DEFAULT '0' COMMENT '点击量(阅读量)',
+  `is_top` bit(1) NOT NULL DEFAULT b'0' COMMENT '是否置顶 0为否  1为是',
   `created_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='资源文章内容表';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='资源文章内容表';
 
 -- ----------------------------
 -- Records of rcs_content
 -- ----------------------------
+INSERT INTO `rcs_content` VALUES ('1', 'http://www.17sucai.com/preview/705993/2018-01-18/Blog_html/img/slider/slide2.jpg', '文章测试', '个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。', '网站 资源', 'admin', '2018-06-23', '0', '0', '\0', '2018-06-23 16:32:28', '2018-06-23 16:32:28', null);
+INSERT INTO `rcs_content` VALUES ('2', 'http://www.17sucai.com/preview/705993/2018-01-18/Blog_html/img/slider/slide2.jpg', '文章测试3', '个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。', '网站 资源 文章', 'admin', '2018-06-23', '0', '100', '', '2018-06-23 17:34:02', '2018-06-23 17:34:02', null);
+INSERT INTO `rcs_content` VALUES ('3', null, '文章测试2', '个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。', '文章', 'admin', '2018-06-23', '0', '1002', '\0', '2018-06-23 17:26:26', '2018-06-23 17:26:26', null);
+INSERT INTO `rcs_content` VALUES ('4', null, '文章测试4', '个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。', '文章22', 'admin', '2018-06-24', '0', '1002', '\0', '2018-06-26 08:56:44', '2018-06-26 08:56:44', null);
+INSERT INTO `rcs_content` VALUES ('5', 'http://www.17sucai.com/preview/705993/2018-01-18/Blog_html/img/slider/slide2.jpg', '文章测试5', '个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。', '网站 资源 文章1', 'admin', '2018-06-26', '0', '100', '\0', '2018-06-26 08:56:41', '2018-06-26 08:56:41', null);
+INSERT INTO `rcs_content` VALUES ('6', 'http://www.17sucai.com/preview/705993/2018-01-18/Blog_html/img/slider/slide2.jpg', '文章测试6', '个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。', '网站 资源 文章5', 'admin', '2018-06-25', '0', '100', '\0', '2018-06-26 08:56:40', '2018-06-26 08:56:40', null);
+INSERT INTO `rcs_content` VALUES ('7', 'http://www.17sucai.com/preview/705993/2018-01-18/Blog_html/img/slider/slide2.jpg', '文章测试7', '个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建5343453中。。。个人网站正在建设中。。。个人网站正在建设中。。。3434', '网站 资源 文章6', 'admin', '2018-06-23', '0', '100', '\0', '2018-06-25 16:40:17', '2018-06-25 16:40:17', null);
+INSERT INTO `rcs_content` VALUES ('8', 'http://www.17sucai.com/preview/705993/2018-01-18/Blog_html/img/slider/slide2.jpg', '文章测试8', '个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。个人网站正在建设中。。。43个人网站正在建设中。。。个人网站正在建设中。。。', '网站 资源 文章8', 'admin', '2018-06-23', '0', '100', '\0', '2018-06-25 16:40:20', '2018-06-25 16:40:20', null);
 
 -- ----------------------------
 -- Table structure for rcs_menu
